@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #f8fafc; /* slate-50 */
+  --color-foreground: #0f172a; /* slate-900 */
+
+  /* Vibrant Orange Accent */
+  --color-electric: #FF5722;
+  --color-electric-hover: #E64A19;
+  --color-electric-dim: rgba(255, 87, 34, 0.1);
+  
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f5f9; /* slate-100 */
+  --color-border: #e2e8f0; /* slate-200 */
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Base styles for light mode enforcement */
+:root {
+  color-scheme: light;
+}
