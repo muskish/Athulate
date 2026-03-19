@@ -1,5 +1,5 @@
+import os
 from fastapi import FastAPI, HTTPException, Body, Request, Depends
-from fastapi import FastAPI, HTTPException, Body, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer
 from contextlib import asynccontextmanager
@@ -63,9 +63,11 @@ app = FastAPI(
 )
 
 # Allow frontend to connect
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Next.js local dev port
+    allow_origins=[FRONTEND_URL, "http://localhost:3000"],  # Allows live Vercel and local Next.js
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -29,7 +29,8 @@ export default function ProfilePage() {
       const token = localStorage.getItem("token");
       if (!token) return;
       try {
-        const res = await fetch("http://localhost:8000/api/users/me", {
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+        const res = await fetch(`${API_URL}/api/users/me`, {
           headers: { "Authorization": `Bearer ${token}` }
         });
         if (res.ok) {
@@ -78,7 +79,8 @@ export default function ProfilePage() {
     if (!token) return;
 
     try {
-      const res = await fetch("http://localhost:8000/api/users/me", {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const res = await fetch(`${API_URL}/api/users/me`, {
         method: "PUT",
         headers: { 
           "Authorization": `Bearer ${token}`,

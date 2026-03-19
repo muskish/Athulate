@@ -22,7 +22,8 @@ export default function Sidebar() {
       if (!token) return;
       
       try {
-        const res = await fetch("http://localhost:8000/api/users/me", {
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+        const res = await fetch(`${API_URL}/api/users/me`, {
           headers: {
             "Authorization": `Bearer ${token}`
           }
