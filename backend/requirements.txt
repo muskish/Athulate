@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+motor
+pydantic
+scikit-learn
+numpy
+joblib
+passlib[bcrypt]
+PyJWT
+python-multipart
+certifi
