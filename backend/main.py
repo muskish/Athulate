@@ -63,11 +63,15 @@ app = FastAPI(
 )
 
 # Allow frontend to connect
-FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
+FRONTEND_URL = os.getenv("FRONTEND_URL", "https://athulate.vercel.app")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL, "http://localhost:3000"],  # Allows live Vercel and local Next.js
+    allow_origins=[
+        FRONTEND_URL, 
+        "https://athulate.vercel.app", 
+        "http://localhost:3000"
+    ],  # Allows live Vercel and local Next.js
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
